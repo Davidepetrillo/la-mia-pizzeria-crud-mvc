@@ -1,0 +1,155 @@
+﻿@model.List<Pizze>
+
+@{
+    // ViewData["Title"] = "Home Page"; // -- impostazione pagina predefinita
+    Layout = null;  // Per disattivare il layout della pagina predefinito
+}
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/site.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.min.css" integrity="sha512-fJcFDOQo2+/Ke365m0NMCZt5uGYEWSxth3wg2i0dXu7A1jQfz9T4hdzz6nkzwmJdOdkcS8jmy2lWGaRXl+nFMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+
+    <title>Pizza Restaurant</title>
+  </head>
+  <body>
+   <div class="header">
+       <ul class="menu">
+           <li><a href="" class="Home">Home</a></li>
+           <li><a href="" class="Single">Chi siamo</a></li>
+           <li><a href="" class="Contact">Lavora con noi</a></li>
+       </ul>
+       <div class="cta">
+           <a href="" class="button">Contatti</a>
+       </div>
+   </div>
+
+   <div class="hero">
+       <div class="hero__content">
+           <p class="intro-text desc">25 Sandys Row, Londra E1 7HW Inghilterra</p>
+           <h1 class="big-text">Pizza Restaurant</h1>
+           <a href="#scopriDiPiù" class="button">Scopri di più</a>
+       </div>
+       <video autoplay muted loop id="video-back">
+           <source src="img\pexels-denys-gromov-6176588.mp4" type="video/mp4">
+       </video>
+    </div>
+    <div class="poster">
+        <div class="poster__img">
+            <img src="img/pizzeria2.png" alt="">
+        </div>
+        <div class="poster__content">
+            <h3 class="big-text">Sentiti a casa</h3>
+            <p>L’estetica di una location raffinata, un’architettura elegante e una cucina innovativa ma tradizionale: Il nostro ristorante è la dimostrazione di come tutto questo possa coesistere in un unico spazio</p>
+        </div>
+    </div>
+
+    <div class="poster mtop-3">
+    
+    <div class="poster__content">
+        <h3 class="big-text">Tra tradizione e innovazione</h3>
+        <p>Da una delle famiglie di pizzaioli più antiche di Napoli. Gino cresce nella pizzeria di famiglia e ben presto impara i segreti della vera pizza napoletana</p>
+    </div>
+    <div class="poster__img">
+        <img src="img/pexels-vincent-rivaud-2295285.jpg" alt="">
+    </div>
+    </div>
+
+<div class="grid mtop-3" id="scopriDiPiù">
+    <div class="col">
+        <h3 class="big-text">Le nostre pizze</h3>
+    </div>
+    <div class="col">
+        <p>La nuova frontiera è l’utilizzo di farine di agricoltura biologica e l’aggiornamento continuo dei propri menù data la continua e costante ricerca delle migliori eccellenze gastronomiche italiane da proporre sulla pizza e da far conoscere attraverso la pizza…</p>
+    </div>
+</div>
+
+       <!--
+
+       @if(Model.Count() == 0)
+        {
+            <h3>Non ci sono pizze al momento</h3>
+        }else
+        {
+            
+                @foreach (Pizze pizzaNellaLista in Model)
+                {
+                    <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+                    <div class="carousel-cell"><a href="/Home/PizzaMargherita"><img src="~/img/margherita.jpg" class="img-fluid pizze" alt="..."></a></div>
+                }
+                <div class="carousel-cell"><a href="/Home/PizzaMargherita"><img src="pizzaNellaLista.Immagine" class="img-fluid pizze" alt="..."></a></div>
+                </div>
+        }
+
+        -->
+
+        <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+    <div class="carousel-cell"><a href="/Home/PizzaMargherita"><img src="~/img/margherita.jpg" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaPepperoni"><img src="~/img/Pepperoni-pizza.png" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaOrtolana"><img src="~/img/pizza-ortolana.jpg" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaCrudaiola"><img src="~/img/pizza-crudaiola.jpg" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaQuattroStagioni"><img src="~/img/pizza-quattroStagioni.jpg" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaVegetariana"><img src="~/img/pizza-vegetariana.png" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaTonnoCipolle"><img src="~/img/pizza-tonno-cipolle.jpg" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaPesto"><img src="~/img/pizza-pesto.jpg" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaPrimavera"><img src="~/img/pizza-primavera2.png" class="img-fluid pizze" alt="..."></a></div>
+    <div class="carousel-cell"><a href="/Home/PizzaFantasia"><img src="~/img/Pizza-Fantasia.jpg" class="img-fluid pizze" alt="..."></a></div>
+</div>
+
+
+  
+<div class="poster mtop-3">
+    
+    <div class="poster__content">
+        <h3 class="big-text">Da oggi gustaci anche a casa tua!</h3>
+        <p>Il nostro servizio delivery è attivo 7 giorni su 7 dalle oe 11:00 alle 24:00. Goditi la bontà delle nostre pizze comodamente seduto sul tuo divano</p>
+        <a href="" class="button">Ordina adesso</a>
+    </div>
+    <div class="poster__img">
+        <img src="img/delivery.jpg" alt="">
+    </div>
+</div>
+
+<footer class="footer mtop-3">
+<div class="grid">
+    <div class="col">
+        <h4 class="normal-text tw">Chi siamo</h4>
+        <p>Pizza Restaurant</p>
+    </div>
+    <div class="col">
+        <h4 class="normal-text tw">Dove ci trovi</h4>
+        <p>25 Sandys Row, Londra E1 7HW Inghilterra</p>
+    </div>
+    <div class="col">
+        <h4 class="normal-text tw">Lavora con noi</h4>
+        <p>Pizza.Restaurant@gmail.com</p>
+        <p>+(00) 0001112223334</p>
+
+    </div>
+    <div class="col">
+        <h4 class="normal-text tw">I nostri contatti</h4>
+        <p>Email</p>
+        <p>Instagram</p>
+        <p>Facebook</p>
+    </div>
+</div>
+</footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.min.js" integrity="sha512-achKCfKcYJg0u0J7UDJZbtrffUwtTLQMFSn28bDJ1Xl9DWkl/6VDT3LMfVTo09V51hmnjrrOTbtg4rEgg0QArA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
