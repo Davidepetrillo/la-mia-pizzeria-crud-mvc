@@ -55,7 +55,7 @@ namespace LaMiaPizzeria.Controllers
             Pizze pizzaConId = new Pizze(nuovaPizza.Immagine, nuovaPizza.Nome, nuovaPizza.Descrizione, nuovaPizza.Prezzo);
 
             PizzeData.GetPizze().Add(pizzaConId);
-            return RedirectToAction("HomePage");
+            return RedirectToAction("Index");
         }
     }
 
