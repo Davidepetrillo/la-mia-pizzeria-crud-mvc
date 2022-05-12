@@ -6,8 +6,7 @@
         public string Nome { get; set; }
         public string Descrizione { get; set; }
         public string Prezzo { get; set; }
-
-
+        public int Id { get; internal set; }
 
         public Pizze()
         {

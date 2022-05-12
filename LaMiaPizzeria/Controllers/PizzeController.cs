@@ -36,14 +36,26 @@ namespace LaMiaPizzeria.Controllers
             }
 
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View("FormPizze");
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Pizze nuovaPizza)
         {
             if(!ModelState.IsValid){
-                return View("ErrorePizza");
+                return View("FormPizze", nuovaPizza);
             }
-            PizzeData.GetPizze().Add(nuovaPizza);
+
+            Pizze pizzaConId = new Pizze(nuovaPizza.Immagine, nuovaPizza.Nome, nuovaPizza.Descrizione, nuovaPizza.Prezzo);
+
+            PizzeData.GetPizze().Add(pizzaConId);
+            return RedirectToAction("HomePage");
         }
     }
 
