@@ -22,7 +22,7 @@ namespace LaMiaPizzeria.Models
         {
 
         }
-
+        
         public Pizze(int id, string immagine, string nome, string descrizione, string prezzo)
         {
             this.Id = id;
