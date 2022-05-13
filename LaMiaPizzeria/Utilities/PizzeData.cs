@@ -17,7 +17,7 @@ namespace LaMiaPizzeria.Utilities
 
             for(int i =0; i <5; i++)
             {
-                Pizze NuovaPizza = new Pizze(i, "https://picsum.photos/id/" + i + "237/200/300", "Titolo Pizza : " + i, "Lorem ipsum arga ers tua mono cols ergom", "prezzo");
+                Pizze NuovaPizza = new Pizze(i, "https://picsum.photos/id/" + i + "/300/200", "Nome della Pizza", "Descrizione della pizza", "prezzo");
                 nuovaListaPizze.Add(NuovaPizza);
             }
             PizzeData.pizze = nuovaListaPizze;
