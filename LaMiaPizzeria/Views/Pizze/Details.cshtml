@@ -1,6 +1,6 @@
 ﻿@{
     // ViewData["Title"] = "Home Page"; // -- impostazione pagina predefinita
-    Layout = null;  // Per disattivare il layout della pagina predefinito
+    // Layout = null;  // Per disattivare il layout della pagina predefinito
 }
 <!doctype html>
 <html lang="en">
@@ -14,18 +14,18 @@
 
     <link rel="stylesheet" href="~/css/pizze-style.css">
 
-    <title>Margherita</title>
+    // <title>Margherita</title>
 </head>
     <body>
         <div class="poster">
             <div class="poster__img">
-                <img src="@Model.immagine" alt="">
+                <img src="@Model.Immagine">
             </div>
             <div class="poster__content m-lg-3">
-                <h3 class="med-text">@Model.nome</h3>
-                <p>@Model.descrizione</p>
+                <h3 class="med-text">@Model.Nome</h3>
+                <p>@Model.Descrizione</p>
                 <p class="normal-text"> -------------------------</p>
-                <p class="normal-text">@Model.prezzo</p>
+                <p class="normal-text">@Model.Prezzo</p>
 
             </div>
         </div>

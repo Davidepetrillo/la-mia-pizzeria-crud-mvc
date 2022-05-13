@@ -6,4 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Home\PizzaCrudaiola.cshtml" />
+    <Content Remove="Views\Home\PizzaFantasia.cshtml" />
+    <Content Remove="Views\Home\PizzaMargherita.cshtml" />
+    <Content Remove="Views\Home\PizzaOrtolana.cshtml" />
+    <Content Remove="Views\Home\PizzaPepperoni.cshtml" />
+    <Content Remove="Views\Home\PizzaPesto.cshtml" />
+    <Content Remove="Views\Home\PizzaPrimavera.cshtml" />
+    <Content Remove="Views\Home\PizzaQuattroStagioni.cshtml" />
+    <Content Remove="Views\Home\PizzaTonnoCipolle.cshtml" />
+    <Content Remove="Views\Home\PizzaVegetariana.cshtml" />
+  </ItemGroup>
+
 </Project>

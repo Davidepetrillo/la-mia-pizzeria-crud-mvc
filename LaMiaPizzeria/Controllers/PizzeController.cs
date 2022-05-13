@@ -8,7 +8,7 @@ namespace LaMiaPizzeria.Controllers
     public class PizzeController : Controller
     {
         [HttpGet]
-        public IActionResult Index( string immagine, string nome, string descrizione, string prezzo)
+        public IActionResult Index()
         {
             List<Pizze> pizze = PizzeData.GetPizze();
 
@@ -49,7 +49,7 @@ namespace LaMiaPizzeria.Controllers
             Pizze pizzaConId = new Pizze(PizzeData.GetPizze().Count, nuovaPizza.Immagine, nuovaPizza.Nome, nuovaPizza.Descrizione, nuovaPizza.Prezzo);
 
             PizzeData.GetPizze().Add(pizzaConId);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -72,7 +72,7 @@ namespace LaMiaPizzeria.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("FormPizze", model);
+                return View("Update", model);
             }
 
             Pizze pizzaOriginale = GetPizzaById(id);
