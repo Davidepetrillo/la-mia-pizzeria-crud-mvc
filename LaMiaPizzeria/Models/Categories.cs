@@ -2,7 +2,7 @@
 
 namespace LaMiaPizzeria.Models
 {
-    public class Category
+    public class Categories
     {
         [Key]
         [Required(ErrorMessage="Il campo è obbligatorio")]
@@ -11,7 +11,7 @@ namespace LaMiaPizzeria.Models
         public string NomeCategoria { get; set; }
         public List<Pizze> Pizze { get; set; }
 
-        public Category()
+        public Categories()
         {
 
         }

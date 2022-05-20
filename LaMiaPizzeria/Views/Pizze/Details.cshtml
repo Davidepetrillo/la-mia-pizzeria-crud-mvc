@@ -26,6 +26,16 @@
                 <p>@Model.Descrizione</p>
                 <p class="normal-text"> -------------------------</p>
                 <p class="normal-text">@Model.Prezzo</p>
+                <p>
+                <strong>Categoria:</strong>
+                @if(Model.Category != null)
+                {
+                    <span>@Model.Category.NomeCategoria</span>
+                } else
+                {
+                    <span>Nessuna Categoria associata</span>
+                }
+            </p>
 
             </div>
         </div>

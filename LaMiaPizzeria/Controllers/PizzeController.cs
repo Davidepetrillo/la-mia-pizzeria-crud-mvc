@@ -61,7 +61,7 @@ namespace LaMiaPizzeria.Controllers
         {
             using (PizzeContext db = new PizzeContext())
             {
-                List<Category> categorie = db.Category.ToList();
+                List<Categories> categorie = db.Categories.ToList();
 
                 PizzeCategorie model = new PizzeCategorie();
                 model.Pizze = new Pizze();
@@ -80,7 +80,7 @@ namespace LaMiaPizzeria.Controllers
 
                 using (PizzeContext db = new PizzeContext())
                 {
-                    List<Category> categorie = db.Category.ToList();
+                    List<Categories> categorie = db.Categories.ToList();
                     data.Categorie = categorie;
                 }
                 return View("FormPizze", data);
@@ -92,6 +92,7 @@ namespace LaMiaPizzeria.Controllers
                 nuovaPizza.Nome = data.Pizze.Nome;
                 nuovaPizza.Descrizione = data.Pizze.Descrizione;
                 nuovaPizza.Immagine = data.Pizze.Immagine;
+                nuovaPizza.Prezzo = data.Pizze.Prezzo;
                 nuovaPizza.CategoryId = data.Pizze.CategoryId;
 
                 db.Pizze.Add(nuovaPizza);
@@ -105,13 +106,13 @@ namespace LaMiaPizzeria.Controllers
         public IActionResult Update(int id)
         {
             Pizze pizzaDaModificare = null;
-            List<Category> categorie = new List<Category>();
+            List<Categories> categorie = new List<Categories>();
 
             using (PizzeContext db = new PizzeContext())
             {
                 pizzaDaModificare = db.Pizze.Where(pizze => pizze.Id == id).FirstOrDefault();
                 
-                categorie = db.Category.ToList<Category>();
+                categorie = db.Categories.ToList<Categories>();
             }
 
             if (pizzaDaModificare == null)
@@ -136,7 +137,7 @@ namespace LaMiaPizzeria.Controllers
 
                 using (PizzeContext db = new PizzeContext())
                 {
-                    List<Category> categorie = db.Category.ToList();
+                    List<Categories> categorie = db.Categories.ToList();
                     model.Categorie = categorie;
                 }
                 return View("Update", model);

@@ -21,7 +21,7 @@ namespace LaMiaPizzeria.Models
         public string Descrizione { get; set; }
         public string Prezzo { get; set; }
         public int? CategoryId { get; set; }
-        public Category? Category { get; set; }
+        public Categories? Category { get; set; }
 
 
         public Pizze()
