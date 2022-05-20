@@ -10,13 +10,20 @@ namespace LaMiaPizzeria.Controllers.API
     public class PizzaController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(string? search)
         {
             List<Pizze> pizze = new List<Pizze>();
 
             using (PizzeContext db = new PizzeContext())
             {
-                pizze = db.Pizze.ToList<Pizze>();
+                if (search != null && search != "")
+                {
+                    pizze = db.Pizze.Where(pizze => pizze.Nome.Contains(search) || pizze.Descrizione.Contains(search)).ToList<Pizze>();
+                }
+                else
+                {
+                    pizze = db.Pizze?.ToList<Pizze>();
+                }
             }
 
             return Ok(pizze);

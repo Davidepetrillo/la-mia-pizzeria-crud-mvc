@@ -3,15 +3,23 @@
         <div class ="col-12">
             <div class="d-flex justify-content-between align-items-center">
                 <h1 class="mt-3 mb-3">Lista pizze</h1>
+                <div>
+                    <input id="search_input" type="text" placeholder="Cerca una pizza...">
+                </div>
             </div>
         </div>
     </div>
-    <div class="row js_no_pizze text-center">
+    <div id="aspetto_pizze" class="row js_wait_pizze text-center">
+        <div class="col-12">
+            <h3>Sto aspettando le pizze...</h3>
+        </div>
+    </div>
+    <div id="id_senza_pizze" class="row js_no_pizze text-center">
         <div class="col-12">
             <h3>Non ci sono pizze al momento</h3>
         </div>
     </div>
-    <div class="row js_card_pizze">
+    <div id="id_pizze" class="row js_card_pizze">
 
     </div>
 </div>
@@ -22,41 +30,59 @@
 
         loadPizze();
 
+        document.getElementById("search_input").addEventListener('keyup', searchItems);
 
-            function loadPizze(){
-                axios.get('/api/Pizza/Get').then((result) => {
-                    console.log("Ho ricevuto le pizze");
+        searchItems();
 
-                    if(result.data.length ==0){
+        function searchItems(){
+            var inputText = document.getElementById('search_input').value;
+            loadPizze(inputText);
+        }
 
-                        document.querySelector('.js_card_pizze').classList.Add('d-none');
+            function loadPizze(searchParameter){
+            document.getElementById('id_pizze').innerHTML = '';
 
-                    } else {
+            axios.get('/api/Pizze/Get', {
+                params : {
+                    search : searchParameter
+                }
+            }).then((result) => {
+                // Codice che verrà eseguito quando arrivano i dati dalla mia web api
+                console.log("Ho ricevuto le mie pize!");
 
-                        document.querySelector('.js_no_pizze').classList.Add('d-none');
+                if(result.data.length == 0){
+                    document.getElementById('aspetto_pizze').classList.add('d-none');
+                    document.getElementById('id_senza_pizze').classList.remove('d-none');
+                } else {
+                    document.getElementById('id_senza_pizze').classList.add('d-none');
+                    document.getElementById('aspetto_pizze').classList.add('d-none');
+                    document.getElementById('id_pizze').classList.remove('d-none');
 
-                        result.data.forEach(pizze => {
-                            document.querySelector('js_card_pizze').innerHTML += 
+                    result.data.forEach(pizze => {
+                        document.getElementById('id_pizze').innerHTML += 
                             `
                             <div class="col-12 col-md-4 p-2">
-                                <div class="card">
-                                    <img src="${pizze.immagine}" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                        <h5 class="card-title">${pizze.nome}</h5>
-                                        <p class="card-text">${pizze.descrizione}</p>
-                                        </div>
+                               <div class="card post">
+                                  <img src="${pizze.immagine}" class="card-img-top" alt="${pizze.descrizione}">
+                                  <div class="card-body">
+                                    <h5 class="card-title">${pizze.nome}</h5>
+                                    <p class="card-text">${pizze.descrizione}</p>
+                                  </div>
                                 </div>
                             </div>
                             `
-                        });
-
-                    }
+                    });
                 }
-                ).catch ((error) =>{
-                    console.log("Errore" + error);
-                });
-             }    
+
+            }
+
+            ).catch((error) => {
+                console.log("C'è stato un errore: " + error);
+            });
+        }
+    
     </script>
-   
+
+    
 
 }
